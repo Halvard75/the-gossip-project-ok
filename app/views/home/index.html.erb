@@ -1,0 +1,44 @@
+<% if user_signed_in? %>
+
+<ul>
+
+    <% if user_signed_in?%>
+
+        <li>
+            <%= link_to "Edit Account", edit_user_registration_path  %>
+        </li>
+        <li>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete%>
+        </li>
+    
+        <li>
+            <%= current_user.username %>
+        </li>
+       
+    <% else %>
+        <li>
+            <%= link_to "Sign in", new_user_session_path %>
+        </li>
+        <li>
+            <%=  link_to "sign UP", new_user_registration_path  %>
+        </li>
+    <% end %>
+</ul>
+
+<div class="titre">
+<div class="back">
+<h1>SUPER SIIIIIITE</h1>
+<p>Tu peux créer des posts mec</p>
+</div>
+</div>
+<% else %>
+<div class="backg">
+    <div class="log">
+        <h1>Hey bro <%= link_to "connecte-toi ", new_user_session_path %> ou <%=  link_to "sinscris-toi !", new_user_registration_path  %></h1>
+    </div>
+    <div class="back"><center>
+<%= image_tag 'http://www.heberger-image.fr/data/images/33092_y_y_y_chat_chante_chat_crie_chat_chauffe_la_jauge_FUTUR_PROD_f_tes_griller_votre_cb_100_tout_le_monde_chera_content_chat_ch_est_jur_promis_crach_parole_de_chat_promet_des_gr.jpeg'%>
+        </center>
+    </div>
+</div>
+<% end %>
